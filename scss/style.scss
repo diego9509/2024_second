@@ -4,11 +4,14 @@
     box-sizing: border-box;
 }
 
+@import url("../font/pretendard-subset.css");
+
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Pretendard';
 }
 
 .flex {
@@ -20,16 +23,105 @@ body {
     &.end {
         justify-content: flex-end;
     }
+    &.between {
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+$primary: #A01857;
+$margin: calc(460px - 48px);
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+    background: linear-gradient(180deg, #d9d9d9 0px, #b3b3b3 110px, #999 111px, #e6e6e6 calc(100% - 90px), #f2f2f2 calc(100% - 90px), #ccc 100%);
+    .light {
+        position: absolute;
+        top: 55px;
+        left: 50%;
+        transform: translateX((-50%));
+        opacity: .75;
+    }
+    > div:not(.title) {
+        text-align: center;
+        padding: calc(110px + 2rem) $margin 0;
+        > div {
+            width: 640px;
+            aspect-ratio: 3/2;
+            background: #333;
+            border: 6px solid white;
+            outline: 8px solid #808080;
+            margin: 2rem auto;
+        }
+        button {
+            font-size: 1.5rem;
+            background: $primary;
+            border: none;
+            border-radius: 9999px;
+            color: white;
+            padding: .75rem 1.5rem;
+        }
+    }
+    .title {
+        height: 90px;
+        align-content: center;
+        .center {
+            gap: 1.75rem;
+        }
+    }
+}
+
+.menu-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 $margin;
+    transform: translateY(-100%);
+    transition: .4s transform;
+    &.is-active {
+        transform: translateY(0);
+    }
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        background: $primary;
+        border-radius: 0 0 1.75rem 1.75rem;
+        padding: 1rem 2rem;
+        gap: 4rem;
+        > div {
+            display: flex;
+            flex-grow: 1;
+            gap: 1rem;
+            button {
+                flex-grow: 1;
+            }
+        }
+        button {
+            background: white;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            padding: 1rem 0;
+        }
+        .close,
+        .back {
+            background: transparent;
+        }
+    }
 }
 
 .main {
     height: 100%;
-    background-color: #C48BC0;
+    background-color: $primary;
     background-image: url("../images/bg_main.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 100%;
-    $margin: 460px;
     .grid {
         display: flex;
         flex-direction: column;
@@ -58,18 +150,27 @@ body {
                 flex: 0 0 25%;
                 padding: 0 $grid-margin;
                 .item {
-                    position: relative;
                     display: flex;
-                    align-items: flex-end;
-                    justify-content: center;
+                    flex-direction: column;
+                    height: 100%;
+                    position: relative;
                     background: white;
-                    border: 8px solid white;
-                    aspect-ratio: 4/3;
+                    border: 6px solid white;
+                    border-bottom: none;
                     img {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
                         width: 100%;
+                        aspect-ratio: 4/3;
+                    }
+                    div {
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        background: white;
+                        text-align: center;
+                        font-size: .875rem;
+                        font-weight: 600;
+                        padding: .5rem 0;
                     }
                 }
             }
@@ -77,11 +178,97 @@ body {
     }
     .title {
         text-align: center;
+        margin-top: 1rem;
         > img {
             margin-bottom: 1.75rem;
         }
         .center {
             gap: 2rem;
+        }
+    }
+}
+
+.fancybox__content {
+    max-width: 800px;
+    padding: 0;
+    .flex.between {
+        padding: 0 1rem;
+    }
+    .close {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+    p {
+        padding: 1rem;
+    }
+    .buttons {
+        gap: 1rem;
+        button {
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+            background: $primary;
+            border: none;
+            padding: .5rem 1.5rem;
+            &.point {
+                background: #FF9500;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .intro {
+        .light {
+            width: 100%;
+        }
+        > div:not(.title) {
+            padding: 8rem 2rem 0;
+            img {
+                width: 100%;
+            }
+            > div {
+                width: 100%;
+            }
+        }
+    }
+
+    .main {
+        width: 100%;
+        background-size: cover;
+        .grid {
+            padding: 0 1rem;
+            .end {
+                padding: 1rem 0;
+            }
+            .items {
+                row-gap: 1rem;
+                .item-wrapper {
+                    flex: 0 0 33.3%;
+                    padding: 0 .5rem;
+                    .item {
+                        border-width: 4px;
+                        div {
+                            font-size: .75rem;
+                            padding: .25rem 0;
+                        }
+                    }
+                }
+            }
+            .title {
+                margin: 0;
+                > img {
+                    display: none;
+                }
+                .flex {
+                    padding: 1.5rem 0;
+                    gap: 1.5rem;
+                    img {
+                        height: 1.25rem;
+                    }
+                }
+            }
         }
     }
 }
