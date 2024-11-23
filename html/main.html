@@ -8,7 +8,6 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
     />
-    <link rel="stylesheet" href="../js/splide-4.1.3/dist/css/splide.min.css" />
     <link rel="stylesheet" href="../scss/style.css" />
 </head>
 <body>
@@ -199,22 +198,11 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script src="../js/splide-4.1.3/dist/js/splide.min.js"></script>
     <script>
         Fancybox.bind('[data-fancybox]', {
             autoSize: true,
             closeButton: false,
             backdropClick: "close",
-            on: {
-                done: (fancybox, slide) => {
-                    var splide = new Splide('.splide');
-                    splide.mount();
-                },
-                shouldClose: ()=>{
-                    var splide = new Splide('.splide');
-                    splide.destroy()
-                }
-            },
         });    
     </script>
     <script src="../js/common.js"></script>

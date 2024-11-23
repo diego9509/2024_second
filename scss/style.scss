@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Binggrae';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 *:before,
 *:after {
@@ -544,9 +551,11 @@ $pilar-width: 200px;
                 padding: 2rem 0 5rem;
                 div {
                     flex: 0 0 calc(33.3% - 0.625rem);
-                    aspect-ratio: 9/7;
-                    background: url("../images/img_frame.svg") no-repeat center / contain;
-                    background-color: $primary;
+                    .frame {
+                        aspect-ratio: 9/7;
+                        background: url("../images/img_frame.svg") no-repeat center / contain;
+                        background-color: $primary;
+                    }
                 }
             }
         }

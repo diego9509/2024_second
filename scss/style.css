@@ -1,5 +1,11 @@
 @charset "UTF-8";
 @import url("../font/pretendard-subset.css");
+@font-face {
+  font-family: "Binggrae";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 *,
 *:before,
 *:after {
@@ -508,6 +514,8 @@ body {
 }
 .event-bg > div .content .frames div {
   flex: 0 0 calc(33.3% - 0.625rem);
+}
+.event-bg > div .content .frames div .frame {
   aspect-ratio: 9/7;
   background: url("../images/img_frame.svg") no-repeat center/contain;
   background-color: #A01857;
