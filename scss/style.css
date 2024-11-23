@@ -111,7 +111,7 @@ body {
   border: none;
   border-radius: 9999px;
   font-size: 1.125rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 .menu-wrapper .menu .close,
 .menu-wrapper .menu .back {
@@ -119,6 +119,8 @@ body {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background-color: #A01857;
   background-image: url("../images/bg_main.svg");
@@ -127,15 +129,21 @@ body {
   background-size: auto 100%;
 }
 .main .grid {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   justify-content: space-between;
-  height: 100%;
   padding: 2rem 412px;
 }
 .main .grid > div {
   width: 100%;
+}
+.main .grid > div:not(.title) {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 .main .grid .end {
   margin-bottom: 2rem;
@@ -148,7 +156,7 @@ body {
 .main .grid .items {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 3rem;
+  row-gap: 2rem;
   width: 100%;
 }
 .main .grid .items .item-wrapper {
@@ -182,13 +190,16 @@ body {
 }
 .main .title {
   text-align: center;
-  margin-top: 1rem;
-}
-.main .title > img {
-  margin-bottom: 1.75rem;
 }
 .main .title .center {
   gap: 2rem;
+}
+.main .menu-wrapper {
+  position: relative;
+  transform: none;
+}
+.main .menu-wrapper .menu {
+  border-radius: 1.25rem 1.25rem 0 0;
 }
 
 .fancybox__content {
@@ -219,6 +230,9 @@ body {
   border: none;
   padding: 0;
 }
+.fancybox__content section img {
+  width: 100%;
+}
 .fancybox__content .content {
   flex-grow: 1;
   overflow-y: auto;
@@ -228,6 +242,7 @@ body {
   flex: 0 0 65%;
   font-family: "Binggrae";
   padding: 1rem;
+  margin: 0;
 }
 .fancybox__content .content .image-wrapper {
   flex: 0 0 35%;
@@ -239,7 +254,7 @@ body {
 }
 .fancybox__content .buttons {
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 .fancybox__content .buttons button {
   color: white;
@@ -537,7 +552,7 @@ body {
 .event-bg > div .content {
   width: 100%;
   text-align: center;
-  padding: 10rem 4rem 0;
+  padding: 7rem 4rem 0;
   margin-left: -200px;
   margin-right: -200px;
 }
@@ -548,7 +563,7 @@ body {
   display: flex;
   align-items: stretch;
   gap: 1rem;
-  padding: 2rem 0 5rem;
+  padding: 2rem 0;
 }
 .event-bg > div .content .frames > div {
   display: flex;
@@ -607,10 +622,10 @@ footer .flex {
 }
 @media (max-width: 1440px) {
   .intro > div:not(.title) {
-    padding: calc(110px + 2rem) 0 0;
+    padding: calc(110px + 2rem) 100px 0;
   }
   .main .grid {
-    padding: 2rem 0;
+    padding: 2rem 100px;
   }
   .menu-wrapper {
     padding: 0;
@@ -626,7 +641,7 @@ footer .flex {
     padding: 5rem 0 0;
   }
   .event section {
-    padding: 0 0;
+    padding: 0 100px;
   }
   .event section > div {
     margin-top: 2rem;
@@ -661,7 +676,12 @@ footer .flex {
     background-size: cover;
   }
   .main .grid {
-    padding: 0 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .main .grid > div:not(.title) {
+    flex-grow: 0;
+    align-items: flex-start;
   }
   .main .grid .end {
     padding: 1rem 0;
@@ -684,10 +704,10 @@ footer .flex {
     margin: 0;
   }
   .main .grid .title > img {
-    width: 100%;
+    width: 80%;
   }
   .main .grid .title .flex {
-    padding: 1.5rem 0;
+    padding: 0.5rem 0;
     gap: 1.5rem;
   }
   .main .grid .title .flex img {
@@ -822,6 +842,21 @@ footer .flex {
   footer .flex {
     align-items: end;
     justify-content: space-between;
+  }
+  .fancybox__content {
+    width: 100%;
+  }
+  .fancybox__content .content {
+    flex-direction: column;
+  }
+  .fancybox__content .content p {
+    font-size: 0.875rem;
+  }
+  .fancybox__content .buttons {
+    gap: 0.5rem;
+  }
+  .fancybox__content .buttons button {
+    font-size: 0.875rem;
   }
   #dialog-event .flex.between {
     flex-direction: column;
