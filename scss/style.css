@@ -349,7 +349,7 @@ body {
   gap: 2rem;
 }
 .event .grid .items .item-wrapper {
-  flex: 1 0 calc(25% - 2rem);
+  flex: 0 0 calc(25% - 2rem);
 }
 .event .grid .items .item-wrapper .item {
   width: 100%;

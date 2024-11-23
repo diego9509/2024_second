@@ -365,7 +365,7 @@ $pilar-width: 200px;
             flex-wrap: wrap;
             gap: $gap;
             .item-wrapper {
-                flex: 1 0 calc(25% - $gap);
+                flex: 0 0 calc(25% - $gap);
                 .item {
                     width: 100%;
                     input {
