@@ -546,17 +546,33 @@ body {
 }
 .event-bg > div .content .frames {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 1rem;
   padding: 2rem 0 5rem;
 }
-.event-bg > div .content .frames div {
+.event-bg > div .content .frames > div {
+  display: flex;
+  flex-direction: column;
   flex: 0 0 calc(33.3% - 0.625rem);
 }
-.event-bg > div .content .frames div .frame {
+.event-bg > div .content .frames > div .frame {
   aspect-ratio: 9/7;
   background: url("../images/img_frame.svg") no-repeat center/contain;
   background-color: #A01857;
+}
+.event-bg > div .content .frames > div div:first-of-type {
+  flex-grow: 0;
+  padding-bottom: 0.5rem;
+}
+.event-bg > div .content .frames > div div:last-of-type {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
 }
 
 footer {
